@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9E9E9"
+    android:orientation="vertical"
+    tools:context=".ManHinhChiTien">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="11dp">
+
+        <Spinner
+            android:id="@+id/spin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+        </Spinner>
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/icon_check"
+            android:background="@drawable/custombtncheck"
+            android:layout_marginRight="15dp"
+            android:layout_gravity="right"/>
+
+        <ImageButton
+            android:layout_gravity="left"
+            android:id="@+id/imageButton3"
+            android:background="@drawable/custombtncheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/note" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.75"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/txtMoney"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:backgroundTint="#E2E2E2"
+            android:ems="10"
+            android:gravity="right"
+            android:inputType="textPersonName"
+            android:text="0"
+            android:textColor="#F44336"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="6"
+                app:srcCompat="@drawable/icon_question" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#E2E2E2"
+                android:drawableRight="@drawable/next"
+                android:ems="10"
+                android:hint="Chọn hạng mục"
+                android:inputType="textPersonName"
+                android:textColor="#F44336"
+                android:textColorHighlight="#009688"
+                android:textColorHint="#F44336"
+                android:textColorLink="#F44336"
+                android:textSize="24sp">
+
+            </EditText>
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="6"
+                app:srcCompat="@drawable/justify" />
+
+            <EditText
+                android:id="@+id/txtDiengiai"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#E2E2E2"
+                android:ems="10"
+                android:hint="Diễn giải"
+                android:inputType="textPersonName"
+                android:textColor="#798083"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="6"
+                app:srcCompat="@drawable/calendar" />
+
+            <EditText
+                android:id="@+id/txtCalendar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#E2E2E2"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="6"
+                app:srcCompat="@drawable/wallet_1" />
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#E2E2E2"
+                android:drawableRight="@drawable/next"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Ví tiền mặt"
+                android:textColorHint="#0F0F0F"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="#E9E9E9"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/down_arrow"
+                android:text="Thêm chi tiết  "
+                android:textColor="#00AFF0"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.65"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:background="@drawable/customlinearlayoutsave"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/txtSave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/icon_save1"
+                    android:gravity="center"
+                    android:text="Lưu"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/customlinearlayoutscan"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Scan hoá đơn"
+                    android:textStyle="bold"
+                    android:textColor="#00AFF0"
+                    android:gravity="center"
+                    android:drawableLeft="@drawable/scan"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btnhome"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/custombuttonhome"
+                android:drawableTop="@drawable/icon_home"
+                android:outlineSpotShadowColor="#FFFFFF"
+                android:text="Tổng quan"
+                android:textAllCaps="false"
+                android:textColor="#747474"
+                android:textSize="12sp"></Button>
+
+            <Button
+                android:id="@+id/btnwallet"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/custombuttonhome"
+                android:drawableTop="@drawable/wallet_2"
+                android:outlineSpotShadowColor="#FFFFFF"
+                android:text="Tài khoản"
+                android:textAllCaps="false"
+                android:textColor="#747474"
+                android:textSize="12sp" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/custombuttonhome"
+                android:outlineSpotShadowColor="#FFFFFF"
+                app:srcCompat="@drawable/icon_plus" />
+
+            <Button
+                android:id="@+id/btnhanmucchi"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/custombuttonhome"
+                android:drawableTop="@drawable/icon_hanmucchi"
+                android:outlineSpotShadowColor="#FFFFFF"
+                android:text="Hạn mức chi"
+                android:textAllCaps="false"
+                android:textColor="#747474"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnother"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/custombuttonhome"
+                android:drawableTop="@drawable/other"
+                android:outlineSpotShadowColor="#FFFFFF"
+                android:text="Khác"
+                android:textAllCaps="false"
+                android:textColor="#747474"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

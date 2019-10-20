@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Money Happy</string>
+
+    <string-array name="dropdown">
+        <item>Thu tiền</item>
+        <item>Chi tiền</item>
+    </string-array>
+</resources>
