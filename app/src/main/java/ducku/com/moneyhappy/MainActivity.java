@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     EditText etxtUserName;
     EditText etxtPassWord;
-    String urlCheckLogin = "http://192.168.0.107/money_happy/views/v_login/checkLogIn.php";
+    String urlCheckLogin = "http://vietsever.tk/views/v_login/checkLogIn.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
