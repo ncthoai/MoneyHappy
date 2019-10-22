@@ -11,20 +11,23 @@ public class ManHinhDangNhap extends AppCompatActivity {
     Button btnDangNhap;
     EditText EditTextMK;
     EditText EditTextSDT;
+    String Querry;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         addControls();
-//        addEvent();
+        addEvent();
     }
 
     private void addEvent() {
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new layketqua().execute("name=hajiwon1023");
+                Querry = "act=login&username="+EditTextSDT.getText()+"&password="+EditTextMK.getText();
+                //EditTextSDT.setText(Querry);
+                new layketqua().execute(Querry);
             }
         });
     }
