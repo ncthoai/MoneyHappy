@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,10 +44,8 @@ public class MainActivity extends AppCompatActivity {
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String _username = etxtUserName.getText().toString().trim();
-                String _pass = etxtPassWord.getText().toString().trim();
 
-                checkLogin(_username, _pass);
+                checkLogin(urlCheckLogin);
             }
         });
     }
@@ -58,14 +57,12 @@ public class MainActivity extends AppCompatActivity {
         etxtPassWord = findViewById(R.id.passWord);
     }
 
-    private void checkLogin(final String userName, final String passWord) {
+    private void checkLogin(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, urlCheckLogin,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        String a = response.trim();
-                        String b = userName+passWord;
                         if(response.trim().equals("success")){
                             Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_LONG).show();
                             Intent intent=new Intent(MainActivity.this, ManHinhTaoVi.class);
@@ -73,24 +70,28 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else {
                             Toast.makeText(MainActivity.this, "Login Failse", Toast.LENGTH_LONG).show();
+
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                            Toast.makeText(MainActivity.this,"Xảy ra lỗi",Toast.LENGTH_LONG).show();
+                        Log.d("BBB","Lỗi \n"+error.toString());
                     }
                 }
                 ){
-                    protected Map getParams() throws AuthFailureError
+                    protected Map<String, String> getParams() throws AuthFailureError
                     {
-                        Map params = new HashMap();
-                        params.put("username", userName);
-                        params.put("password", passWord);
+                        Map <String, String> params = new HashMap();
+                        params.put("username", etxtUserName.getText().toString().trim());
+                        params.put("password", etxtPassWord.getText().toString().trim());
 
                         return params;
                     }
+
+
                 };
                 requestQueue.add(stringRequest);
     }
