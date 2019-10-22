@@ -12,6 +12,8 @@ public class ManHinhDangNhap extends AppCompatActivity {
     EditText EditTextMK;
     EditText EditTextSDT;
     String Querry;
+    //test
+    long time;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -27,6 +29,7 @@ public class ManHinhDangNhap extends AppCompatActivity {
             public void onClick(View view) {
                 Querry = "act=login&username="+EditTextSDT.getText()+"&password="+EditTextMK.getText();
                 //EditTextSDT.setText(Querry);
+                time = System.currentTimeMillis();
                 new layketqua().execute(Querry);
             }
         });
@@ -41,7 +44,9 @@ public class ManHinhDangNhap extends AppCompatActivity {
     private class layketqua extends api {
         @Override
         protected void onPostExecute(String s) {
-            EditTextSDT.setText(s);
+            long temp = System.currentTimeMillis() - time;
+            double a = temp / 1000.0;
+            EditTextSDT.setText(s+ "- " + a +" sec" );
         }
     }
 }
