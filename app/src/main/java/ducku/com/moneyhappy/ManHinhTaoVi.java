@@ -1,11 +1,11 @@
 package ducku.com.moneyhappy;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class ManHinhTaoVi extends AppCompatActivity {
@@ -35,7 +35,7 @@ public class ManHinhTaoVi extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.menu1:
-                Intent intent= new Intent(ManHinhTaoVi.this,ManHinhChiTien.class);
+                Intent intent= new Intent(ManHinhTaoVi.this, ManHinhChiTien.class);
                 startActivity(intent);
                 break;
             default:break;

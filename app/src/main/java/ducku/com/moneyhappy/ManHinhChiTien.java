@@ -1,15 +1,12 @@
 package ducku.com.moneyhappy;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import java.util.ArrayList;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class ManHinhChiTien extends AppCompatActivity  {
+public class ManHinhChiTien extends AppCompatActivity {
 
     Spinner spLoai;
     @Override
@@ -32,7 +29,7 @@ public class ManHinhChiTien extends AppCompatActivity  {
                 "Chi tiền",
         };
 
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,R.layout.custom_spinner
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner
         ,loai);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spLoai.setAdapter(spinnerArrayAdapter);

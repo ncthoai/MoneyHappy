@@ -23,13 +23,33 @@
         android:background="#FFFFFF"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView"
+        <TextView
+            android:id="@+id/textViewSDT"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="100dp"
+            android:lineSpacingExtra="8sp"
+            android:text="Số điện thoại:"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:visibility="visible" />
 
-            android:layout_weight="1"
-            app:srcCompat="@drawable/money" />
+        <EditText
+            android:id="@+id/editTextSDT"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:ems="10"
+            android:inputType="phone"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnDangKy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đăng Ký" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -39,23 +59,6 @@
         android:background="#FFFFFF"
         android:gravity="center"
         android:orientation="vertical">
-
-        <Button
-            android:id="@+id/btnDangNhap"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/custombtndangnhap"
-            android:text="Đăng nhập"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btnDangKy"
-            android:layout_width="311dp"
-            android:layout_height="wrap_content"
-            android:text="Dang Ky" />
 
 
     </LinearLayout>
