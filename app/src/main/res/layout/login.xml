@@ -14,78 +14,138 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        android:theme="?attr/actionBarTheme" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Đăng nhập"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="#FFFFFF"></TextView>
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3"
+        android:layout_weight="1"
         android:background="#FFFFFF"
+        android:gravity="right"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textViewSDT"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="100dp"
-            android:lineSpacingExtra="8sp"
-            android:text="Số điện thoại:"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            tools:visibility="visible" />
-
-        <EditText
-            android:id="@+id/editTextSDT"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:inputType="text"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textViewMK"
+        <ImageView
+            android:id="@+id/imageView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Mật khẩu đăng nhập:"
-            android:textSize="24sp"
+            app:srcCompat="@drawable/icon_login" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/txtSDT"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/customeditext_sdt_pass"
+            android:drawableLeft="@drawable/ic_sdt"
+            android:ems="10"
+            android:hint="  Nhập số điện thoại"
+            android:inputType="number"
+            android:textAlignment="inherit"
+            android:textColor="#DF0101"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextMK"
+            android:id="@+id/txtPassword"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="26dp"
+            android:layout_weight="1"
+            android:background="@drawable/customeditext_sdt_pass"
+            android:drawableLeft="@drawable/ic_pass"
             android:ems="10"
+            android:hint="  Nhập mật khẩu"
             android:inputType="textPassword"
-            android:textColor="#000000"
-            android:textSize="24sp" />
+            android:textColor="#DF0101"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btnDangNhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:background="@drawable/custombtndangnhap"
-            android:text="Đăng Nhập"
-            android:textColor="#FFFFFF"
+            android:text="Đăng nhập ngay"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:text="hoặc" />
+
+        <TextView
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:id="@+id/txtQuenmatkhau"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quên mật khẩu"
+            android:textColor="#3A4CAF"
             android:textStyle="bold" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:background="#FFFFFF"
+        android:gravity="top|center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="7"
-        android:background="#FFFFFF"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_weight="1.15"
+        android:orientation="horizontal">
 
+        <ImageButton
+            android:background="@drawable/custombutton_color_white"
+            android:id="@+id/imageButton4"
+            android:outlineSpotShadowColor="#FFFFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/icon_fb" />
 
+        <ImageButton
+            android:background="@drawable/custombutton_color_white"
+            android:id="@+id/imageButton5"
+            android:outlineSpotShadowColor="#FFFFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/icon_gg" />
     </LinearLayout>
+
+
 </LinearLayout>
