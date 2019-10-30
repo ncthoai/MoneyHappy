@@ -9,12 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ManHinhDangNhap extends AppCompatActivity {
 
@@ -67,6 +63,8 @@ public class ManHinhDangNhap extends AppCompatActivity {
                 if(result.equals("true")){
                     //bla bla
                     twMsg.setText("Dang nhap thanh cong");
+                    Intent intent=new Intent(ManHinhDangNhap.this, ManHinhTaoVi.class);
+                    startActivity(intent);
                 } else {
                     //bla bla
                     twMsg.setText("Thong tin khong chinh xac \n Du lieu mau: PHONE/PW: 0329571692/123456");

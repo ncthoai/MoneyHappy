@@ -25,21 +25,22 @@
             android:layout_gravity="center">
 
         </Spinner>
+
         <ImageButton
             android:id="@+id/imageButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/icon_check"
-            android:background="@drawable/custombtncheck"
+            android:layout_gravity="right"
             android:layout_marginRight="15dp"
-            android:layout_gravity="right"/>
+            android:background="@drawable/custombtncheck"
+            app:srcCompat="@drawable/icon_check" />
 
         <ImageButton
-            android:layout_gravity="left"
             android:id="@+id/imageButton3"
-            android:background="@drawable/custombtncheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:background="@drawable/custombtncheck"
             app:srcCompat="@drawable/note" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -51,7 +52,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/txtMoney"
+            android:id="@+id/edtMoney"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
@@ -68,6 +69,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/choiceCategory"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -81,6 +83,12 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/txtIdCategory"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <ImageView
                 android:id="@+id/imgQuestion"
                 android:layout_width="match_parent"
@@ -90,7 +98,7 @@
                 app:srcCompat="@drawable/icon_question" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/edtCategory"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
@@ -104,7 +112,10 @@
                 android:textColorHighlight="#009688"
                 android:textColorHint="#F44336"
                 android:textColorLink="#F44336"
-                android:textSize="24sp">
+                android:textSize="24sp"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false">
 
             </EditText>
 
@@ -128,7 +139,7 @@
                 app:srcCompat="@drawable/justify" />
 
             <EditText
-                android:id="@+id/txtDiengiai"
+                android:id="@+id/edtDescript"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
@@ -156,15 +167,16 @@
                 app:srcCompat="@drawable/calendar" />
 
             <EditText
-                android:id="@+id/txtCalendar"
+                android:id="@+id/edtCalendar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="#E2E2E2"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:hint="yyyy-mm-dd input"
+                android:textColor="#798083"
+                android:inputType="textPersonName" />
         </LinearLayout>
 
         <LinearLayout
@@ -173,8 +185,14 @@
             android:layout_weight="1"
             android:orientation="horizontal" >
 
+            <TextView
+                android:id="@+id/txtIdWallet"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <ImageView
-                android:id="@+id/imageView9"
+                android:id="@+id/imgWallet"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20dp"
@@ -182,7 +200,7 @@
                 app:srcCompat="@drawable/wallet_1" />
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/edtWallet"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
@@ -190,10 +208,19 @@
                 android:backgroundTint="#E2E2E2"
                 android:drawableRight="@drawable/next"
                 android:ems="10"
+                android:hint="Click chọn ví"
                 android:inputType="textPersonName"
-                android:hint="Ví tiền mặt"
-                android:textColorHint="#0F0F0F"
-                android:textSize="18sp" />
+                android:textColor="#F44336"
+                android:textColorHighlight="#009688"
+                android:textColorHint="#F44336"
+                android:textColorLink="#F44336"
+                android:textSize="24sp"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false">
+
+            </EditText>
+
         </LinearLayout>
     </LinearLayout>
 
@@ -232,6 +259,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/convertBtnSave"
                 android:background="@drawable/customlinearlayoutsave"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
