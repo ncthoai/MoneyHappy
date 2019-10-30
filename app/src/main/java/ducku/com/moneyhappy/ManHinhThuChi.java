@@ -2,19 +2,12 @@ package ducku.com.moneyhappy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TabHost;
 import android.widget.Toast;
-
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,56 +18,42 @@ import java.util.ArrayList;
 import ducku.com.moneyhappy.adapter.CategoryAdapter;
 import ducku.com.moneyhappy.model.Category;
 
-public class LoadCategoryActivity extends AppCompatActivity {
+public class ManHinhThuChi extends AppCompatActivity {
 
     ListView lvCategory;
     ArrayList<Category> arrayCategory;
     CategoryAdapter adapter;
     Resources res;
-
-    int idWallet, idImgWallet;
-    String nameWallet;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_load_category);
+        setContentView(R.layout.activity_man_hinh_thu_chi);
+
+        TabHost tabHost=findViewById(R.id.tabhost);
+        tabHost.setup();
+
+        TabHost.TabSpec tab1=tabHost.newTabSpec("t1");
+        tab1.setIndicator("Thu tiền");
+        tab1.setContent(R.id.tab1);
+        tabHost.addTab(tab1);
+
+        TabHost.TabSpec tab2=tabHost.newTabSpec("t2");
+        tab2.setIndicator("Chi tiền");
+        tab2.setContent(R.id.tab2);
+        tabHost.addTab(tab2);
 
         addControls();
-        addEvent();
-
+        addEvents();
         new GetCategory().execute("act=getcategory&iduser=1&type=1");
     }
 
-    private void addControls() {
-        lvCategory = (ListView) findViewById(R.id.lv_category);
-        arrayCategory = new ArrayList<>();
-        res = getResources();
-
-        Intent intent = getIntent();
-        idWallet = intent.getIntExtra("id_wallet", -1);
-        nameWallet = intent.getStringExtra("name_wallet");
-        idImgWallet = intent.getIntExtra("image_wallet", -1);
-
+    private void addEvents() {
     }
 
-    private void addEvent() {
-
-        lvCategory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(LoadCategoryActivity.this, ManHinhChiTien.class);
-                intent.putExtra("id_category", arrayCategory.get(position).get_id());
-                intent.putExtra("name_category", arrayCategory.get(position).get_name());
-                intent.putExtra("image_category", arrayCategory.get(position).get_img());
-
-                intent.putExtra("id_wallet", idWallet);
-                intent.putExtra("name_wallet", nameWallet);
-                intent.putExtra("image_wallet", idImgWallet);
-                startActivity(intent);
-            }
-        });
-
+    private void addControls() {
+        lvCategory =  findViewById(R.id.lvtest);
+        arrayCategory = new ArrayList<>();
+        res = getResources();
     }
 
     private class GetCategory extends api {
@@ -83,6 +62,18 @@ public class LoadCategoryActivity extends AppCompatActivity {
 
             try {
                 JSONArray array = new JSONArray(s);
+                Log.d("Log",array.length()+"");
+//                for (int i = 0 ; i < array.length(); i++) {
+//                    JSONObject category = array.getJSONObject(i);
+//                    int id = category.getInt("id");
+//                    int parent_id = category.getInt("parent_id");
+//                    String name =category.getString("name");
+//                    int idImg = res.getIdentifier(category.getString("image_name") , "drawable", getPackageName());
+//
+//                    arrayCategory.add(new Category(id, parent_id, idImg, name));
+//
+//                    adapter.notifyDataSetChanged();
+//                }
 
                 for(int i=0;i<array.length();i++)
                 {
@@ -95,7 +86,7 @@ public class LoadCategoryActivity extends AppCompatActivity {
 
                     Log.d("Log",name);
                 }
-                adapter = new CategoryAdapter(LoadCategoryActivity.this, 0, arrayCategory);
+                adapter = new CategoryAdapter(ManHinhThuChi.this, 0, arrayCategory);
                 lvCategory.setAdapter(adapter);
 
             } catch (JSONException e) {

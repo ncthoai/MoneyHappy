@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoadCategoryActivity">
@@ -19,14 +20,6 @@
 
 
         <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:background="@drawable/custombtncheck"
-            app:srcCompat="@drawable/next" />
-
-        <ImageButton
             android:id="@+id/btnAddCategory"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -35,14 +28,16 @@
             app:srcCompat="@android:drawable/ic_input_add" />
     </androidx.appcompat.widget.Toolbar>
 
+
     <ListView
         android:id="@+id/lv_category"
         android:layout_width="match_parent"
-        android:layout_height="573dp"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp" />
+        tools:layout_editor_absoluteX="1dp" >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </ListView>
+</LinearLayout>
