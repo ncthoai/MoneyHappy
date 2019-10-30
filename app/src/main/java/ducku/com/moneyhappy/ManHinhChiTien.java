@@ -1,9 +1,12 @@
 package ducku.com.moneyhappy;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,9 +19,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class ManHinhChiTien extends AppCompatActivity {
 
-    Spinner spLoai;
     LinearLayout choiceCategory;
     EditText edtCategory;
     TextView txtIdCategory;
@@ -26,6 +31,9 @@ public class ManHinhChiTien extends AppCompatActivity {
     TextView txtIdWallet;
     ImageView imgWallet;
     ImageView imgCategory;
+    ImageView imgcalendar;
+    Calendar calendar=Calendar.getInstance();
+    SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
 
     EditText edtMoney, edtDescript, edtCalendar;
 
@@ -45,8 +53,7 @@ public class ManHinhChiTien extends AppCompatActivity {
     }
 
     private void addEvents() {
-
-        choiceCategory.setOnClickListener(new View.OnClickListener() {
+        edtCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(ManHinhChiTien.this, LoadCategoryActivity.class);
@@ -54,12 +61,6 @@ public class ManHinhChiTien extends AppCompatActivity {
                 intent.putExtra("name_wallet", nameWallet);
                 intent.putExtra("image_wallet", idImgWallet);
                 startActivity(intent);
-            }
-        });
-
-        edtCategory.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                choiceCategory.callOnClick();
             }
         });
 
@@ -93,6 +94,30 @@ public class ManHinhChiTien extends AppCompatActivity {
                 }
             }
         });
+
+        //Xử lý hiển thị DatePicker
+        imgcalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                xuLyNgay();
+            }
+        });
+    }
+
+    private void xuLyNgay() {
+        final Calendar calendar=Calendar.getInstance();
+        int ngay=calendar.get(Calendar.DATE);
+        int thang=calendar.get(Calendar.MONTH);
+        int nam=calendar.get(Calendar.YEAR);
+        DatePickerDialog datePickerDialog= new DatePickerDialog(this, AlertDialog.THEME_DEVICE_DEFAULT_DARK, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                calendar.set(i,i1,i2);
+                SimpleDateFormat simpleDateFormat= new SimpleDateFormat("dd/MM/yyyy");
+                edtCalendar.setText(simpleDateFormat.format(calendar.getTime()));
+            }
+        },nam,thang,ngay);
+        datePickerDialog.show();
     }
 
 
@@ -106,21 +131,18 @@ public class ManHinhChiTien extends AppCompatActivity {
         imgCategory = findViewById(R.id.imgQuestion);
         imgWallet = findViewById(R.id.imgWallet);
 
+
+
         edtCalendar = findViewById(R.id.edtCalendar);
         edtDescript = findViewById(R.id.edtDescript);
         edtMoney = findViewById(R.id.edtMoney);
         convertBtnSave = findViewById(R.id.convertBtnSave);
 
-        spLoai=findViewById(R.id.spin);
-        String[] loai = new String[]{
-                "Thu tiền",
-                "Chi tiền",
-        };
+        //Xử lý ngày
+        imgcalendar=findViewById(R.id.imgCalendar);
+        calendar=Calendar.getInstance();
+        edtCalendar.setText(sdf.format(calendar.getTime()));
 
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner
-        ,loai);
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spLoai.setAdapter(spinnerArrayAdapter);
 
         Intent intent = getIntent();
         idCategory = intent.getIntExtra("id_category", -1);

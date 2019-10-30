@@ -60,12 +60,14 @@
             android:ems="10"
             android:hint="  Nhập số điện thoại"
             android:inputType="number"
+            android:text="0329571692"
             android:textAlignment="inherit"
             android:textColor="#DF0101"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <EditText
+            android:text="123456"
             android:id="@+id/txtPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
