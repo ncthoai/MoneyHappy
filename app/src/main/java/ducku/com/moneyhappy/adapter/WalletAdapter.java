@@ -42,25 +42,38 @@ public class WalletAdapter extends BaseAdapter {
         return 0;
     }
 
+    public class ViewHolder {
+        ImageView img;
+        TextView txtName, txtAmount;
+    }
+
+
     @Override
     public View getView(int i, View convertView, ViewGroup parent) {
 
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        Wallet wallet = walletList.get(i);
-        convertView = inflater.inflate(layout, null);
+        ViewHolder holder;
 
+        if (convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(layout, null);
+            holder = new ViewHolder();
 
+            // ánh xạ View
+            holder.txtName = (TextView) convertView.findViewById(R.id.txtName);
+            holder.txtAmount = (TextView) convertView.findViewById(R.id.txtAmount);
+            holder.img = (ImageView) convertView.findViewById(R.id.imageviewImg);
 
-        // ánh xạ View
-        TextView txtName = (TextView) convertView.findViewById(R.id.txtName);
-        TextView txtAmount = (TextView) convertView.findViewById(R.id.txtAmount);
-        ImageView img = (ImageView) convertView.findViewById(R.id.imageviewImg);
-
+            convertView.setTag(holder);
+        }
+        else {
+            holder = (ViewHolder) convertView.getTag();
+        }
 
         // gán giá trị
-        txtName.setText(wallet.get_name());
-        txtAmount.setText(wallet.get_id()+" đ");
-        img.setImageResource(wallet.get_img());
+        Wallet wallet = walletList.get(i);
+        holder.txtName.setText(wallet.get_name());
+        holder.txtAmount.setText(wallet.get_id()+" đ");
+        holder.img.setImageResource(wallet.get_img());
 
         return convertView;
     }

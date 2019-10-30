@@ -41,32 +41,48 @@ public class CategoryAdapter extends BaseAdapter {
         return 0;
     }
 
+    public class ViewHolder {
+        ImageView img;
+        TextView txtName, txtId;
+    }
+
     @Override
     public View getView(int i, View convertView, ViewGroup parent) {
 
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
+        ViewHolder holder;
         // get data array
         Category category = categoryList.get(i);
 
-        // select layout Type by parentId
-        if(category.get_parentId() == 0) {
-            convertView = inflater.inflate(R.layout.custom_listview_category, null);
+        if (convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+
+            // select layout Type by parentId
+            if(category.get_parentId() == 0) {
+                convertView = inflater.inflate(R.layout.custom_listview_category, null);
+            }
+            else {
+                convertView = inflater.inflate(R.layout.custom_listview_subcategory, null);
+            }
+
+            holder  =  new ViewHolder();
+            // ánh xạ View
+            holder.txtName = (TextView) convertView.findViewById(R.id.txtName);
+            holder.txtId = (TextView) convertView.findViewById(R.id.txtId);
+            holder.img = (ImageView) convertView.findViewById(R.id.imageviewImg);
+
+            convertView.setTag(holder);
         }
         else {
-            convertView = inflater.inflate(R.layout.custom_listview_subcategory, null);
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        // ánh xạ View
-        TextView txtName = (TextView) convertView.findViewById(R.id.txtName);
-        TextView txtId = (TextView) convertView.findViewById(R.id.txtId);
-        ImageView img = (ImageView) convertView.findViewById(R.id.imageviewImg);
 
 
         // gán giá trị
-        txtName.setText(category.get_name());
-        txtId.setText(category.get_id()+"");
-        img.setImageResource(category.get_img());
+        holder.txtName.setText(category.get_name());
+        holder.txtId.setText(category.get_id()+"");
+        holder.img.setImageResource(category.get_img());
 
         return convertView;
     }

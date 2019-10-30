@@ -43,8 +43,6 @@ public class LoadWalletActivity extends AppCompatActivity {
     private void addControls() {
         lvWallet = (ListView) findViewById(R.id.lv_wallet);
         arrayWallet = new ArrayList<>();
-        adapter = new WalletAdapter(this, R.layout.custom_listview_wallet, arrayWallet);
-        lvWallet.setAdapter(adapter);
         res = getResources();
 
         Intent intent = getIntent();
@@ -88,6 +86,9 @@ public class LoadWalletActivity extends AppCompatActivity {
                     int idImg = res.getIdentifier(wallet.getString("image_name") , "drawable", getPackageName());
                     arrayWallet.add(new Wallet(id, amount, idImg, name));
                 }
+
+                adapter = new WalletAdapter(LoadWalletActivity.this, R.layout.custom_listview_wallet, arrayWallet);
+                lvWallet.setAdapter(adapter);
 
             } catch (JSONException e) {
                 e.printStackTrace();

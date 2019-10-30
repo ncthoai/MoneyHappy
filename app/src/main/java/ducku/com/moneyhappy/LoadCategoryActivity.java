@@ -48,8 +48,6 @@ public class LoadCategoryActivity extends AppCompatActivity {
     private void addControls() {
         lvCategory = (ListView) findViewById(R.id.lv_category);
         arrayCategory = new ArrayList<>();
-        adapter = new CategoryAdapter(this, 0, arrayCategory);
-        lvCategory.setAdapter(adapter);
         res = getResources();
 
         Intent intent = getIntent();
@@ -91,8 +89,12 @@ public class LoadCategoryActivity extends AppCompatActivity {
                     int parent_id = category.getInt("parent_id");
                     String name =category.getString("name");
                     int idImg = res.getIdentifier(category.getString("image_name") , "drawable", getPackageName());
+                    //Toast.makeText(LoadCategoryActivity.this, name+idImg, Toast.LENGTH_SHORT).show();
                     arrayCategory.add(new Category(id, parent_id, idImg, name));
                 }
+
+                adapter = new CategoryAdapter(LoadCategoryActivity.this, 0, arrayCategory);
+                lvCategory.setAdapter(adapter);
 
             } catch (JSONException e) {
                 e.printStackTrace();
