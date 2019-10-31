@@ -20,8 +20,8 @@ import ducku.com.moneyhappy.model.Category;
 public class ManHinhThuChi extends AppCompatActivity {
 
     ListView lvCategoryChi, lvCategoryThu;
-    ArrayList<Category> arrayCategory;
-    CategoryAdapter adapter;
+    ArrayList<Category> arrayCategory, arrayCategory2;
+    CategoryAdapter adapter, adapter2;
     Resources res;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,8 @@ public class ManHinhThuChi extends AppCompatActivity {
 
         lvCategoryThu=findViewById(R.id.lvthu);
         arrayCategory = new ArrayList<>();
+        arrayCategory2 = new ArrayList<>();
+
         res = getResources();
     }
 
@@ -73,11 +75,11 @@ public class ManHinhThuChi extends AppCompatActivity {
                     int parent_id=obcategory.getInt("parent");
                     String name=obcategory.getString("cname");
                     int idImg=res.getIdentifier(obcategory.getString("img"),"drawable",getPackageName());
-                    arrayCategory.add(new Category(id,parent_id,idImg,name));
+                    arrayCategory2.add(new Category(id,parent_id,idImg,name));
                     Log.d("Log",name);
                 }
-                adapter = new CategoryAdapter(ManHinhThuChi.this, 0, arrayCategory);
-                lvCategoryChi.setAdapter(adapter);
+                adapter2 = new CategoryAdapter(ManHinhThuChi.this, 0, arrayCategory2);
+                lvCategoryChi.setAdapter(adapter2);
 
             } catch (JSONException e) {
                 e.printStackTrace();
