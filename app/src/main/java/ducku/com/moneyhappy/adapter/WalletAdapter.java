@@ -72,7 +72,7 @@ public class WalletAdapter extends BaseAdapter {
         // gán giá trị
         Wallet wallet = walletList.get(i);
         holder.txtName.setText(wallet.get_name());
-        holder.txtAmount.setText(wallet.get_id()+" đ");
+        holder.txtAmount.setText(wallet.get_amount()+" đ");
         holder.img.setImageResource(wallet.get_img());
 
         return convertView;

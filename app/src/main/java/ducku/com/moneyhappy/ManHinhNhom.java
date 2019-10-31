@@ -2,9 +2,12 @@ package ducku.com.moneyhappy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -18,6 +21,7 @@ import ducku.com.moneyhappy.model.Category;
 
 public class ManHinhNhom extends AppCompatActivity {
 
+    ImageButton imgchonvi;
     ListView lvCategoryChi, lvCategoryThu;
     ArrayList<Category> arrayCategory, arrayCategory2;
     CategoryAdapter adapter, adapter2;
@@ -34,6 +38,7 @@ public class ManHinhNhom extends AppCompatActivity {
     }
 
     private void addControls() {
+        imgchonvi=findViewById(R.id.imgchonvi);
         lvCategoryChi =  findViewById(R.id.lvKhoanChi);
         lvCategoryThu=findViewById(R.id.lvkhoanthu);
 
@@ -45,7 +50,13 @@ public class ManHinhNhom extends AppCompatActivity {
 
     private void addEvents()
     {
-
+        imgchonvi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(ManHinhNhom.this,ManHinhVi.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private class GetCategoryChi extends api {

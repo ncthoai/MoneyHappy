@@ -32,6 +32,23 @@
         <item name="colorControlActivated">#934848</item>
         <!-- Highlight (i.e ripples or list selectors) -->
         <item name="colorControlHighlight">#111</item>
+
+        <item name="colorBackgroundFloating">#FFFFFF</item>
     </style>
-    
+
+    <style name="ToolbarThemeVi" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!-- android:textColorPrimary: Màu chữ Tiêu đề  -->
+        <item name="android:textColorPrimary">#000000</item>
+        <!-- actionMenuTextColor: Màu chữ Menu  -->
+        <item name="actionMenuTextColor">@android:color/holo_green_light</item>
+        <!-- Tints -->
+        <item name="colorAccent">#a13636</item>
+        <!-- Màu áp dụng cho các View ở trạng thái bình thường -->
+        <item name="colorControlNormal">#000000</item>
+        <!-- Màu View đang hoạt động -->
+        <item name="colorControlActivated">#934848</item>
+        <!-- Highlight (i.e ripples or list selectors) -->
+        <item name="colorControlHighlight">#111</item>
+
+    </style>
 </resources>

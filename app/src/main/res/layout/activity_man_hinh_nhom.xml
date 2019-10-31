@@ -25,7 +25,7 @@
 
         <ImageButton
             android:layout_gravity="right"
-            android:id="@+id/imageButton"
+            android:id="@+id/imgchonvi"
             android:background="@drawable/custom_mauxanhgiongtoolbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +36,9 @@
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hiển thị id ví" />/>
+            android:text="Hiển thị id ví"
+            android:layout_marginBottom="5dp"/>
+        />
 </androidx.appcompat.widget.Toolbar>
 
     <TextView
@@ -60,6 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginBottom="7dp"
         android:text="Khoản chi"
         android:textStyle="bold"
         android:textSize="18sp" />

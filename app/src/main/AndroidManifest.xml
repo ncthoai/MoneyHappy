@@ -12,17 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ManHinhVi">
+
+        </activity>
         <activity android:name=".ManHinhNhom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".ManHinhThuChi">
-
-        </activity>
+        <activity android:name=".ManHinhThuChi"></activity>
         <activity android:name=".LoadWalletActivity" />
         <activity android:name=".LoadCategoryActivity" />
         <activity android:name=".ManHinhChiTien" />
@@ -30,7 +30,7 @@
         <activity android:name=".ManHinhDangKy" />
         <activity android:name=".ManHinhDangNhap" />
         <activity android:name=".api" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
