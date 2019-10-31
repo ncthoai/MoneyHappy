@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".ManHinhNhom">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" >
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhóm"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp" />
+
+        <ImageButton
+            android:layout_gravity="right"
+            android:id="@+id/imageButton"
+            android:background="@drawable/custom_mauxanhgiongtoolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/wallet_mauxanh"></ImageButton>
+        <TextView
+            android:layout_marginRight="12dp"
+            android:layout_gravity="right"
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hiển thị id ví" />/>
+</androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Khoản thu"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/lvkhoanthu"
+        android:layout_width="match_parent"
+        android:layout_height="254dp">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="Khoản chi"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/lvKhoanChi"
+        android:layout_width="match_parent"
+        android:layout_height="257dp">
+
+    </ListView>
+
+    <ImageView
+        android:id="@+id/imgAdd"
+        android:layout_gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/icon_plus" />
+
+</LinearLayout>
