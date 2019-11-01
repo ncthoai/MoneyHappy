@@ -40,9 +40,6 @@ public class ManHinhHienThiChiTietNhom extends AppCompatActivity {
             case R.id.menudelete:
                 //code xử lý khi bấm menu2
                 break;
-            case R.id.menu4:
-                //code xử lý khi bấm menu3
-                break;
             default:break;
         }
 

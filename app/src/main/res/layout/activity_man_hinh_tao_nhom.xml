@@ -95,7 +95,7 @@
 
             <EditText
                 android:layout_marginLeft="10dp"
-                android:id="@+id/editText2"
+                android:id="@+id/editNhomCha"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

@@ -85,12 +85,6 @@ public class ManHinhVi extends AppCompatActivity {
             case R.id.menu1:
                 //code xử lý khi bấm menu1
                 break;
-            case R.id.menu2:
-                //code xử lý khi bấm menu2
-                break;
-            case R.id.menu4:
-                //code xử lý khi bấm menu3
-                break;
             default:break;
         }
 

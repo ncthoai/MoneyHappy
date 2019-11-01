@@ -44,8 +44,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="TextView"
-                android:textSize="24sp" />
+                android:hint="Hình"
+                android:textSize="18sp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,8 +60,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="TextView"
-                android:textSize="24sp" />
+                android:hint="Hiển thị mục khoản thu hoặc chi"
+                android:textSize="18sp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -84,14 +84,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textSize="24sp"
-                android:text="TextView" />
+                android:textSize="18sp"
+                android:hint="Ví hiện tại đang dung" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="horizontal"></LinearLayout>
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/imgnhomcha"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                app:srcCompat="@drawable/icon_home" />
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:gravity="center|left"
+                android:id="@+id/txtNhomCha"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:hint="Nhóm cha" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout

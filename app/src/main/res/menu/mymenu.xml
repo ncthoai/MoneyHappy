@@ -2,25 +2,25 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/menu1"
+        android:id="@+id/menunhom"
         android:icon="@drawable/ic_pass"
         android:title="Danh sách nhóm"
         app:showAsAction="collapseActionView" />
     <item
-        android:id="@+id/menu2"
+        android:id="@+id/menuvi"
         android:title="Ví"
         app:showAsAction="collapseActionView" />
     <item
-        android:id="@+id/menu3"
+        android:id="@+id/menuhd"
         android:title="Hoá đơn"
         app:showAsAction="collapseActionView" />
     <item
-        android:id="@+id/menu4"
+        android:id="@+id/menudangxuat"
         android:title="Đăng xuất"
         app:showAsAction="collapseActionView" />
     <item
         android:id="@+id/menu5"
-        android:title="Menu5"
+        android:title="..."
         app:showAsAction="collapseActionView" />
 
 </menu>

@@ -14,8 +14,8 @@ import android.widget.ImageView;
 
 public class ManHinhTaoNhom extends AppCompatActivity {
 
-    ImageView imgVi;
-    EditText editVi;
+    ImageView imgVi, imgNhomCha;
+    EditText editVi,editNhomCha;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -49,15 +49,43 @@ public class ManHinhTaoNhom extends AppCompatActivity {
 
             }
         });
+
+        imgNhomCha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(ManHinhTaoNhom.this,ManHinhLoadNhomCha.class);
+                startActivity(intent);
+            }
+        });
+
+        editNhomCha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(ManHinhTaoNhom.this,ManHinhLoadNhomCha.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void addControls() {
         imgVi=findViewById(R.id.imgvi);
         editVi=findViewById(R.id.editvi);
+        imgNhomCha=findViewById(R.id.imgNhomCha);
+        editNhomCha=findViewById(R.id.editNhomCha);
 
         Intent intent=getIntent();
         String name_wl=intent.getStringExtra("Name");
         editVi.setText(name_wl);
+
+        int id_ct= intent.getIntExtra("id_category",-1);
+        int img=intent.getIntExtra("Img",-1);
+        String name_ctCha=intent.getStringExtra("NameCT");
+        if(id_ct!=-1) {
+            editNhomCha.setText(name_ctCha);
+            imgNhomCha.setImageResource(img);
+        }
+
     }
 
 
@@ -74,15 +102,6 @@ public class ManHinhTaoNhom extends AppCompatActivity {
             case android.R.id.home:
                 Intent intent= new Intent(ManHinhTaoNhom.this,ManHinhNhom.class);
                 startActivity(intent);
-                break;
-            case R.id.menu1:
-                //code xử lý khi bấm menu1
-                break;
-            case R.id.menu2:
-                //code xử lý khi bấm menu2
-                break;
-            case R.id.menu4:
-                //code xử lý khi bấm menu3
                 break;
             default:break;
         }
