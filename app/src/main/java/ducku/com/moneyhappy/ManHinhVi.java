@@ -7,6 +7,8 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -55,7 +57,15 @@ public class ManHinhVi extends AppCompatActivity {
 
     private  void addEvent()
     {
-
+        lvWallet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent= new Intent(ManHinhVi.this,ManHinhNhom.class);
+                intent.putExtra("IDWallet",arrayWallet.get(position).get_id());
+                intent.putExtra("NameWallet",arrayWallet.get(position).get_name());
+                startActivity(intent);
+            }
+        });
     }
 
     public boolean onCreateOptionsMenu(Menu menu)

@@ -12,21 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ManHinhVi">
-
-        </activity>
+        <activity android:name=".ManHinhHienThiChiTietNhom"></activity>
+        <activity android:name=".ManHinhChonViDeTaoNhom" />
+        <activity android:name=".ManHinhTaoNhom"></activity>
+        <activity android:name=".ManHinhVi" />
         <activity android:name=".ManHinhNhom">
-        </activity>
-        <activity android:name=".ManHinhThuChi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ManHinhThuChi" />
         <activity android:name=".LoadWalletActivity" />
         <activity android:name=".LoadCategoryActivity" />
-        <activity android:name=".ManHinhChiTien" />
+        <activity android:name=".ManHinhGiaoDich" />
         <activity android:name=".ManHinhTaoVi" />
         <activity android:name=".ManHinhDangKy" />
         <activity android:name=".ManHinhDangNhap" />

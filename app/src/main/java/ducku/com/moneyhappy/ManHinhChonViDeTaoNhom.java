@@ -1,10 +1,12 @@
 package ducku.com.moneyhappy;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -18,56 +20,65 @@ import java.util.ArrayList;
 import ducku.com.moneyhappy.adapter.WalletAdapter;
 import ducku.com.moneyhappy.model.Wallet;
 
-public class LoadWalletActivity extends AppCompatActivity {
+public class ManHinhChonViDeTaoNhom extends AppCompatActivity {
 
     ListView lvWallet;
     ArrayList<Wallet> arrayWallet;
     WalletAdapter adapter;
     Resources res;
-
-    int idCategory, idImgCategory;
-    String nameCategory;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_load_wallet);
+        setContentView(R.layout.activity_man_hinh_chon_vi_de_tao_nhom);
+
+        Toolbar tb5 = findViewById(R.id.tb5);
+        setSupportActionBar(tb5);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setTitle("Chọn Ví");
 
         addControls();
-        addEvent();
+        addEvents();
+
         new GetWallet().execute("act=loadwallet");
     }
 
-
-    private void addControls() {
-        lvWallet = (ListView) findViewById(R.id.lv_wallet);
-        arrayWallet = new ArrayList<>();
-        res = getResources();
-
-        Intent intent = getIntent();
-        idCategory = intent.getIntExtra("id_category", -1);
-        nameCategory = intent.getStringExtra("name_category");
-        idImgCategory = intent.getIntExtra("image_category", -1);
-
-    }
-
-    private void addEvent() {
-
+    private void addEvents() {
         lvWallet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(LoadWalletActivity.this, ManHinhGiaoDich.class);
-                intent.putExtra("id_wallet", arrayWallet.get(position).get_id());
-                intent.putExtra("name_wallet", arrayWallet.get(position).get_name());
-                intent.putExtra("image_wallet", arrayWallet.get(position).get_img());
-
-                intent.putExtra("id_category", idCategory);
-                intent.putExtra("name_category", nameCategory);
-                intent.putExtra("image_category", idImgCategory);
-
+                Intent intent= new Intent(ManHinhChonViDeTaoNhom.this, ManHinhTaoNhom.class);
+                intent.putExtra("Name",arrayWallet.get(position).get_name());
                 startActivity(intent);
             }
         });
+    }
+
+    private void addControls() {
+        lvWallet = (ListView) findViewById(R.id.lvgetwl);
+        arrayWallet = new ArrayList<>();
+        res = getResources();
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                Intent intent= new Intent(ManHinhChonViDeTaoNhom.this,ManHinhTaoNhom.class);
+                startActivity(intent);
+                break;
+            case R.id.menu1:
+                //code xử lý khi bấm menu1
+                break;
+            case R.id.menu2:
+                //code xử lý khi bấm menu2
+                break;
+            case R.id.menu4:
+                //code xử lý khi bấm menu3
+                break;
+            default:break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private class GetWallet extends api {
@@ -86,7 +97,7 @@ public class LoadWalletActivity extends AppCompatActivity {
                     arrayWallet.add(new Wallet(id, amount, idImg, name));
                 }
 
-                adapter = new WalletAdapter(LoadWalletActivity.this, R.layout.custom_listview_wallet, arrayWallet);
+                adapter = new WalletAdapter(ManHinhChonViDeTaoNhom.this, R.layout.custom_listview_wallet, arrayWallet);
                 lvWallet.setAdapter(adapter);
 
             } catch (JSONException e) {
@@ -94,5 +105,4 @@ public class LoadWalletActivity extends AppCompatActivity {
             }
         }
     }
-
 }

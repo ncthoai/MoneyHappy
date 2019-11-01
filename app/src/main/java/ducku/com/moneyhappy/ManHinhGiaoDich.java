@@ -5,13 +5,10 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
-import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +20,7 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class ManHinhChiTien extends AppCompatActivity {
+public class ManHinhGiaoDich extends AppCompatActivity {
 
     LinearLayout choiceCategory;
     EditText edtCategory;
@@ -47,7 +44,7 @@ public class ManHinhChiTien extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_man_hinh_chi_tien);
+        setContentView(R.layout.activity_man_hinh_giao_dich);
 
         addControls();
         addEvents();
@@ -57,7 +54,7 @@ public class ManHinhChiTien extends AppCompatActivity {
         edtCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ManHinhChiTien.this, LoadCategoryActivity.class);
+                Intent intent=new Intent(ManHinhGiaoDich.this, LoadCategoryActivity.class);
                 intent.putExtra("id_wallet", idWallet);
                 intent.putExtra("name_wallet", nameWallet);
                 intent.putExtra("image_wallet", idImgWallet);
@@ -68,7 +65,7 @@ public class ManHinhChiTien extends AppCompatActivity {
         edtWallet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ManHinhChiTien.this, LoadWalletActivity.class);
+                Intent intent=new Intent(ManHinhGiaoDich.this, LoadWalletActivity.class);
                 intent.putExtra("id_category", idCategory);
                 intent.putExtra("name_category", nameCategory);
                 intent.putExtra("image_category", idImgCategory);
@@ -82,7 +79,7 @@ public class ManHinhChiTien extends AppCompatActivity {
             public void onClick(View view) {
                 if(edtCalendar.getText().toString().isEmpty() || edtMoney.getText().toString().isEmpty() || txtIdCategory.getText().toString().isEmpty() || txtIdWallet.getText().toString().isEmpty()) {
                     // Show notify here
-                    Toast.makeText(ManHinhChiTien.this, "Chọn danh mục, Ví và Ko để trống trường ...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ManHinhGiaoDich.this, "Chọn danh mục, Ví và Ko để trống trường ...", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     // Handle logic Save here
@@ -175,9 +172,9 @@ public class ManHinhChiTien extends AppCompatActivity {
                 obj = new JSONObject(s);
                 String result = obj.getString("result");
                 if(result.equals("true")){
-                    Toast.makeText(ManHinhChiTien.this, "Save Success!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ManHinhGiaoDich.this, "Save Success!", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(ManHinhChiTien.this, "Error!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ManHinhGiaoDich.this, "Error!", Toast.LENGTH_LONG).show();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

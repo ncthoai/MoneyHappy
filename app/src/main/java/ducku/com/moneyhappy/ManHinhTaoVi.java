@@ -35,7 +35,7 @@ public class ManHinhTaoVi extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.menu1:
-                Intent intent= new Intent(ManHinhTaoVi.this, ManHinhChiTien.class);
+                Intent intent= new Intent(ManHinhTaoVi.this, ManHinhGiaoDich.class);
                 startActivity(intent);
                 break;
             default:break;

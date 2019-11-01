@@ -7,8 +7,11 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,10 +24,12 @@ import ducku.com.moneyhappy.model.Category;
 
 public class ManHinhNhom extends AppCompatActivity {
 
+    ImageView imgadd;
+    TextView txtNameWl;
     ImageButton imgchonvi;
-    ListView lvCategoryChi, lvCategoryThu;
-    ArrayList<Category> arrayCategory, arrayCategory2;
-    CategoryAdapter adapter, adapter2;
+    ListView lvCategoryThuChi;
+    ArrayList<Category> arrayCategory;
+    CategoryAdapter adapter;
     Resources res;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +43,20 @@ public class ManHinhNhom extends AppCompatActivity {
     }
 
     private void addControls() {
+        Intent intent=getIntent();
+        int id_wl= intent.getIntExtra("IDWallet",-1);
+        String name_wl= intent.getStringExtra("NameWallet");
+        txtNameWl= findViewById(R.id.txtNameWl);
+        txtNameWl.setText(name_wl);
+
+        imgadd= findViewById(R.id.imgAdd);
+
+
         imgchonvi=findViewById(R.id.imgchonvi);
-        lvCategoryChi =  findViewById(R.id.lvKhoanChi);
-        lvCategoryThu=findViewById(R.id.lvkhoanthu);
+        lvCategoryThuChi =  findViewById(R.id.lvKhoanChi);
+
 
         arrayCategory = new ArrayList<>();
-        arrayCategory2 = new ArrayList<>();
 
         res = getResources();
     }
@@ -54,6 +67,22 @@ public class ManHinhNhom extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent =new Intent(ManHinhNhom.this,ManHinhVi.class);
+                startActivity(intent);
+            }
+        });
+
+        imgadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ManHinhNhom.this, ManHinhTaoNhom.class);
+                startActivity(intent);
+            }
+        });
+
+        lvCategoryThuChi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ManHinhNhom.this, ManHinhHienThiChiTietNhom.class);
                 startActivity(intent);
             }
         });
@@ -72,11 +101,11 @@ public class ManHinhNhom extends AppCompatActivity {
                     int parent_id=obcategory.getInt("parent");
                     String name=obcategory.getString("cname");
                     int idImg=res.getIdentifier(obcategory.getString("img"),"drawable",getPackageName());
-                    arrayCategory2.add(new Category(id,parent_id,idImg,name));
+                    arrayCategory.add(new Category(id,parent_id,idImg,name));
                     Log.d("Log",name);
                 }
-                adapter2 = new CategoryAdapter(ManHinhNhom.this, 0, arrayCategory2);
-                lvCategoryChi.setAdapter(adapter2);
+                adapter = new CategoryAdapter(ManHinhNhom.this, 0, arrayCategory);
+                lvCategoryThuChi.setAdapter(adapter);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -102,7 +131,7 @@ public class ManHinhNhom extends AppCompatActivity {
                     Log.d("Log",name);
                 }
                 adapter = new CategoryAdapter(ManHinhNhom.this, 0, arrayCategory);
-                lvCategoryThu.setAdapter(adapter);
+                lvCategoryThuChi.setAdapter(adapter);
 
             } catch (JSONException e) {
                 e.printStackTrace();

@@ -9,12 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -63,7 +57,7 @@ public class LoadCategoryActivity extends AppCompatActivity {
         lvCategory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(LoadCategoryActivity.this, ManHinhChiTien.class);
+                Intent intent=new Intent(LoadCategoryActivity.this, ManHinhGiaoDich.class);
                 intent.putExtra("id_category", arrayCategory.get(position).get_id());
                 intent.putExtra("name_category", arrayCategory.get(position).get_name());
                 intent.putExtra("image_category", arrayCategory.get(position).get_img());
