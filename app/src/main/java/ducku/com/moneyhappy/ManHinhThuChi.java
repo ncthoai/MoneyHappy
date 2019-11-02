@@ -93,8 +93,9 @@ public class ManHinhThuChi extends AppCompatActivity {
                     int id=obcategory.getInt("cid");
                     int parent_id=obcategory.getInt("parent");
                     String name=obcategory.getString("cname");
+                    int type= obcategory.getInt("type");
                     int idImg=res.getIdentifier(obcategory.getString("img"),"drawable",getPackageName());
-                    arrayCategory.add(new Category(id,parent_id,idImg,name));
+                    arrayCategory.add(new Category(id,parent_id,idImg,type,name));
                     Log.d("Log",name);
                 }
                 adapter = new CategoryAdapter(ManHinhThuChi.this, 0, arrayCategory);

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -39,10 +40,23 @@ public class ManHinhLoadNhomCha extends AppCompatActivity {
         addControls();
         addEvents();
 
-        new GetCategory().execute("act=getcategory&iduser=1&type=0&onlyparent=true");
+        Intent intent=getIntent();
+        int type=intent.getIntExtra("type",-1);
+        new GetCategory().execute("act=getcategory&iduser=1&type="+type+"&onlyparent=true");
 
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:break;
+        }
 
+        return super.onOptionsItemSelected(item);
+    }
     private void addEvents() {
         lvCategory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -78,8 +92,9 @@ public class ManHinhLoadNhomCha extends AppCompatActivity {
                     int id=obcategory.getInt("cid");
                     int parent_id=obcategory.getInt("parent");
                     String name=obcategory.getString("cname");
+                    int type=obcategory.getInt("type");
                     int idImg=res.getIdentifier(obcategory.getString("img"),"drawable",getPackageName());
-                    arrayCategory.add(new Category(id,parent_id,idImg,name));
+                    arrayCategory.add(new Category(id,parent_id,idImg,type,name));
 
                     Log.d("Log",name);
                 }
@@ -90,5 +105,7 @@ public class ManHinhLoadNhomCha extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+
+
     }
 }

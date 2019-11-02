@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,7 +45,6 @@ public class ManHinhNhom extends AppCompatActivity {
 
     private void addControls() {
         Intent intent=getIntent();
-        int id_wl= intent.getIntExtra("IDWallet",-1);
         String name_wl= intent.getStringExtra("NameWallet");
         txtNameWl= findViewById(R.id.txtNameWl);
         txtNameWl.setText(name_wl);
@@ -82,8 +82,25 @@ public class ManHinhNhom extends AppCompatActivity {
         lvCategoryThuChi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ManHinhNhom.this, ManHinhHienThiChiTietNhom.class);
-                startActivity(intent);
+                if(txtNameWl.getText().toString()=="")
+                {
+                    Toast.makeText(ManHinhNhom.this,"Bạn chưa chọn ví!, hãy nhấp vào" +
+                            " nút bên phải phía trên để chọn ví ^^",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Intent intent = new Intent(ManHinhNhom.this, ManHinhHienThiChiTietNhom.class);
+                    intent.putExtra("id_ct", arrayCategory.get(position).get_id());
+                    intent.putExtra("name_ct", arrayCategory.get(position).get_name());
+                    intent.putExtra("img_ct", arrayCategory.get(position).get_img());
+                    intent.putExtra("id_parent", arrayCategory.get(position).get_parentId());
+                    intent.putExtra("type", arrayCategory.get(position).get_type());
+
+                    intent.putExtra("name_wl", txtNameWl.getText().toString());
+
+
+
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -100,9 +117,9 @@ public class ManHinhNhom extends AppCompatActivity {
                     int id=obcategory.getInt("cid");
                     int parent_id=obcategory.getInt("parent");
                     String name=obcategory.getString("cname");
+                    int type=obcategory.getInt("type");
                     int idImg=res.getIdentifier(obcategory.getString("img"),"drawable",getPackageName());
-                    arrayCategory.add(new Category(id,parent_id,idImg,name));
-                    Log.d("Log",name);
+                    arrayCategory.add(new Category(id,parent_id,idImg,type,name));
                 }
                 adapter = new CategoryAdapter(ManHinhNhom.this, 0, arrayCategory);
                 lvCategoryThuChi.setAdapter(adapter);
@@ -125,10 +142,10 @@ public class ManHinhNhom extends AppCompatActivity {
                     int id=obcategory.getInt("cid");
                     int parent_id=obcategory.getInt("parent");
                     String name=obcategory.getString("cname");
+                    int type=obcategory.getInt("type");
                     int idImg=res.getIdentifier(obcategory.getString("img"),"drawable",getPackageName());
-                    arrayCategory.add(new Category(id,parent_id,idImg,name));
+                    arrayCategory.add(new Category(id,parent_id,idImg,type,name));
 
-                    Log.d("Log",name);
                 }
                 adapter = new CategoryAdapter(ManHinhNhom.this, 0, arrayCategory);
                 lvCategoryThuChi.setAdapter(adapter);
@@ -138,4 +155,5 @@ public class ManHinhNhom extends AppCompatActivity {
             }
         }
     }
+
 }

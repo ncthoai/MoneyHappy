@@ -10,10 +10,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 
 
 public class ManHinhTaoNhom extends AppCompatActivity {
 
+    int type;
+    RadioButton radthu,radchi;
     ImageView imgVi, imgNhomCha;
     EditText editVi,editNhomCha;
     @Override
@@ -32,10 +35,12 @@ public class ManHinhTaoNhom extends AppCompatActivity {
     }
 
     private void addEvents() {
+
         imgVi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(ManHinhTaoNhom.this, ManHinhChonViDeTaoNhom.class);
+
                 startActivity(intent);
 
             }
@@ -54,6 +59,16 @@ public class ManHinhTaoNhom extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(ManHinhTaoNhom.this,ManHinhLoadNhomCha.class);
+                if(radchi.isChecked()==true)
+                {
+                    type=0;
+                    intent.putExtra("type",type);
+                }
+                else if(radthu.isChecked()==true)
+                {
+                    type=1;
+                    intent.putExtra("type",type);
+                }
                 startActivity(intent);
             }
         });
@@ -62,6 +77,16 @@ public class ManHinhTaoNhom extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(ManHinhTaoNhom.this,ManHinhLoadNhomCha.class);
+                if(radchi.isChecked()==true)
+                {
+                    type=0;
+                    intent.putExtra("type",type);
+                }
+                else if(radthu.isChecked()==true)
+                {
+                    type=1;
+                    intent.putExtra("type",type);
+                }
                 startActivity(intent);
             }
         });
@@ -69,6 +94,9 @@ public class ManHinhTaoNhom extends AppCompatActivity {
     }
 
     private void addControls() {
+        radthu=findViewById(R.id.radthu);
+        radchi=findViewById(R.id.radchi);
+
         imgVi=findViewById(R.id.imgvi);
         editVi=findViewById(R.id.editvi);
         imgNhomCha=findViewById(R.id.imgNhomCha);
@@ -100,9 +128,8 @@ public class ManHinhTaoNhom extends AppCompatActivity {
         switch (item.getItemId())
         {
             case android.R.id.home:
-                Intent intent= new Intent(ManHinhTaoNhom.this,ManHinhNhom.class);
-                startActivity(intent);
-                break;
+                onBackPressed();
+                return true;
             default:break;
         }
 

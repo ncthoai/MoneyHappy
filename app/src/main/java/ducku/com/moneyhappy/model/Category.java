@@ -2,15 +2,25 @@ package ducku.com.moneyhappy.model;
 
 public class Category {
 
-    private int _id, _parentId , _img;
+    private int _id, _parentId , _img, _type;
     private String _name;
 
-    public Category(int _id, int _parentId, int _img, String _name) {
+    public Category(int _id, int _parentId, int _img, int _type, String _name) {
         this._id = _id;
         this._parentId = _parentId;
         this._img = _img;
+        this._type = _type;
         this._name = _name;
     }
+
+    public int get_type() {
+        return _type;
+    }
+
+    public void set_type(int _type) {
+        this._type = _type;
+    }
+
     public Category(){}
 
     public int get_id() {

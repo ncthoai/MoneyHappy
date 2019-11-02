@@ -66,14 +66,14 @@
                 <RadioButton
                     android:checked="true"
                     android:layout_marginRight="7dp"
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/radthu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Khoản thu" />
 
                 <RadioButton
                     android:layout_marginLeft="7dp"
-                    android:id="@+id/radioButton4"
+                    android:id="@+id/radchi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Khoản chi" />

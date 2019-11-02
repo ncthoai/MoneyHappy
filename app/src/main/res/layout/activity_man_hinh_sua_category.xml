@@ -2,22 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="#F5F5F5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ManHinhHienThiChiTietNhom">
+    android:background="#F5F5F5"
+    android:orientation="vertical"
+    tools:context=".ManHinhTaoNhom">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tb6"
+        android:id="@+id/tb9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        android:theme="@style/ToolbarThemeVi" />
 
     <LinearLayout
         android:layout_marginTop="30dp"
+        android:background="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -31,21 +32,52 @@
 
             <ImageView
                 android:layout_marginLeft="20dp"
-                android:id="@+id/imgnhom"
+                android:id="@+id/imghinhh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="6"
                 app:srcCompat="@drawable/icon_question" />
 
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:gravity="center|left"
-                android:id="@+id/txtnhomhienthi"
+            <EditText
+                android:id="@+id/edittennhom"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:hint="Hình"
-                android:textSize="18sp" />
+                android:ems="10"
+                android:hint="Tên nhóm"
+                android:inputType="textPersonName"
+                android:textSize="24sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+            <RadioGroup
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:checked="true"
+                    android:layout_marginRight="7dp"
+                    android:id="@+id/radthu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Khoản thu" />
+
+                <RadioButton
+                    android:layout_marginLeft="7dp"
+                    android:id="@+id/radchi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Khoản chi" />
+            </RadioGroup>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,17 +85,23 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txttype"
+            <ImageView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/imgNhomCha"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+                android:layout_weight="6"
+                app:srcCompat="@drawable/icon_hanmucchi" />
+
+            <EditText
+                android:layout_marginLeft="10dp"
+                android:id="@+id/editNhomCha"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center|left"
-                android:hint="Hiển thị mục khoản thu hoặc chi"
-                android:textColor="#E71304"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:ems="10"
+                android:hint="Nhóm cha"
+                android:inputType="textPersonName" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,39 +117,15 @@
                 android:layout_weight="6"
                 app:srcCompat="@drawable/wallet_1" />
 
-            <TextView
+            <EditText
                 android:layout_marginLeft="10dp"
-                android:gravity="center|left"
-                android:id="@+id/txtTenVi"
+                android:id="@+id/editvi"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textSize="18sp"
-                android:hint="Ví hiện tại đang dung" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_marginLeft="20dp"
-                android:id="@+id/imgnhomcha"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="6"
-                app:srcCompat="@drawable/icon_home" />
-
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:gravity="center|left"
-                android:id="@+id/txtNhomCha"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:hint="Nhóm cha" />
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Ví" />
         </LinearLayout>
     </LinearLayout>
 
