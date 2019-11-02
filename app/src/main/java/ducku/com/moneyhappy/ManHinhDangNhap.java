@@ -1,6 +1,8 @@
 package ducku.com.moneyhappy;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,7 +38,7 @@ public class ManHinhDangNhap extends AppCompatActivity {
             public void onClick(View view) {
                 String tempSDT      = txtSDT.getText().toString();
                 String tempPassword = txtPassword.getText().toString();
-                new GoiDangNhap().execute("act=login&username="+tempSDT+"&password="+tempPassword);
+                new GoiDangNhap().execute("act=login&phone="+tempSDT+"&password="+tempPassword);
             }
         });
     }
@@ -59,15 +61,26 @@ public class ManHinhDangNhap extends AppCompatActivity {
             JSONObject obj = null;
             try {
                 obj = new JSONObject(s);
-                String result = obj.getString("result");
-                if(result.equals("true")){
-                    //bla bla
-                    twMsg.setText("Dang nhap thanh cong");
-                    Intent intent=new Intent(ManHinhDangNhap.this, ManHinhTaoVi.class);
-                    startActivity(intent);
-                } else {
+                String accountId = obj.getString("account_id");
+                String checkWallet = obj.getString("wallet");
+                if(accountId.equals("false")){
                     //bla bla
                     twMsg.setText("Thong tin khong chinh xac \n Du lieu mau: PHONE/PW: 0329571692/123456");
+                } else {
+                    //bla bla
+                    twMsg.setText("Dang nhap thanh cong");
+                    SharedPreferences sharedPreferences = getSharedPreferences("LoginInfo", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("ID", accountId);
+                    Intent intent;
+
+                    if(checkWallet.equals("true")) {
+                        intent=new Intent(ManHinhDangNhap.this, ManHinhHienThiGiaoDich.class);
+                    }
+                    else {
+                        intent=new Intent(ManHinhDangNhap.this, ManHinhTaoVi.class);
+                    }
+                    startActivity(intent);
                 }
                 //xoa pass
                 txtPassword.setText("");
