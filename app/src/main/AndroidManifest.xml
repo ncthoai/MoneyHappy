@@ -12,14 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+<<<<<<< HEAD
         <activity android:name=".ManHinhLoadNhomCha1"></activity>
         <activity android:name=".ManHinhSuaCategory" />
         <activity android:name=".ManHinhHienThiGiaoDich">
+=======
+        <activity android:name=".HomeActivity">
+>>>>>>> 5f17b89b4d09c06f64e7f6e157693d9f21a728bf
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ManHinhSuaCategory" />
+        <activity android:name=".ManHinhHienThiGiaoDich">
         </activity>
         <activity android:name=".ManHinhLoadNhomCha" />
         <activity android:name=".ManHinhHienThiChiTietNhom" />
