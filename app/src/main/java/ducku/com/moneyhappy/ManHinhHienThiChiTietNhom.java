@@ -35,7 +35,9 @@ import ducku.com.moneyhappy.model.Category;
 
 public class ManHinhHienThiChiTietNhom extends AppCompatActivity {
 
-
+    int type;
+    int id_ct;
+    int img_ct;
     ArrayList<Category> arrayCategory;
     Resources res;
     ImageView imgct,imgvi,imgnhomcha;
@@ -72,11 +74,11 @@ public class ManHinhHienThiChiTietNhom extends AppCompatActivity {
         txttype=findViewById(R.id.txttype);
 
         Intent intent=getIntent();
-        int id_ct=intent.getIntExtra("id_ct",-1);
-        int img_ct=intent.getIntExtra("img_ct",-1);
+        id_ct=intent.getIntExtra("id_ct",-1);
+        img_ct=intent.getIntExtra("img_ct",-1);
         String name_ct=intent.getStringExtra("name_ct");
         int id_parent=intent.getIntExtra("id_parent",-1);
-        int type=intent.getIntExtra("type",-1);
+        type=intent.getIntExtra("type",-1);
         String name_wl=intent.getStringExtra("name_wl");
 
         ReadJSOn("https://vietsever.tk/?act=getcategory&cid="+id_parent+"");
@@ -117,6 +119,11 @@ public class ManHinhHienThiChiTietNhom extends AppCompatActivity {
                 return true;
             case R.id.menuedit:
                 Intent intent= new Intent(ManHinhHienThiChiTietNhom.this,ManHinhSuaCategory.class);
+                intent.putExtra("name_ct",txtct.getText().toString());
+                intent.putExtra("id_ct",id_ct);
+                intent.putExtra("img_ct",img_ct);
+                intent.putExtra("type",type);
+                intent.putExtra("name_wl",txtvi.getText().toString());
                 startActivity(intent);
                 break;
             case R.id.menudelete:

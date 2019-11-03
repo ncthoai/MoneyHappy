@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ManHinhSuaCategory"></activity>
+        <activity android:name=".ManHinhLoadNhomCha1"></activity>
+        <activity android:name=".ManHinhSuaCategory" />
         <activity android:name=".ManHinhHienThiGiaoDich">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +24,7 @@
         <activity android:name=".ManHinhLoadNhomCha" />
         <activity android:name=".ManHinhHienThiChiTietNhom" />
         <activity android:name=".ManHinhChonViDeTaoNhom" />
-        <activity android:name=".ManHinhTaoNhom"></activity>
+        <activity android:name=".ManHinhTaoNhom" />
         <activity android:name=".ManHinhVi" />
         <activity android:name=".ManHinhNhom" />
         <activity android:name=".ManHinhThuChi" />
