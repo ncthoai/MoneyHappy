@@ -6,7 +6,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,7 +19,9 @@ import java.util.ArrayList;
 
 import ducku.com.moneyhappy.adapter.CategoryAdapter;
 import ducku.com.moneyhappy.model.Category;
+
 public class ManHinhLoadNhomCha1 extends AppCompatActivity {
+
 
     ListView lvCategory;
     ArrayList<Category> arrayCategory;
@@ -44,6 +45,26 @@ public class ManHinhLoadNhomCha1 extends AppCompatActivity {
         new GetCategory().execute("act=getcategory&iduser=1&type="+type+"&onlyparent=true");
     }
 
+    private void addControls() {
+        lvCategory = (ListView) findViewById(R.id.lvctcha);
+        arrayCategory = new ArrayList<>();
+        res = getResources();
+    }
+
+    private void addEvents() {
+        lvCategory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent= new Intent();
+                intent.putExtra("id_ct",arrayCategory.get(position).get_id());
+                intent.putExtra("name_ct",arrayCategory.get(position).get_name());
+                intent.putExtra("img",arrayCategory.get(position).get_img());
+                setResult(RESULT_OK,intent);
+                finish();
+            }
+        });
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())
@@ -56,32 +77,6 @@ public class ManHinhLoadNhomCha1 extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    private void addEvents() {
-
-        lvCategory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent= new Intent();
-                intent.putExtra("id_ct",arrayCategory.get(position).get_id());
-                intent.putExtra("name_ct",arrayCategory.get(position).get_name());
-                intent.putExtra("img",arrayCategory.get(position).get_img());
-                setResult(RESULT_OK,intent);
-                finish();
-            }
-        });
-
-    }
-
-    private void addControls() {
-        lvCategory = (ListView) findViewById(R.id.lvctcha);
-        arrayCategory = new ArrayList<>();
-        res = getResources();
-
-
-
-    }
-
     private class GetCategory extends api {
         @Override
         protected void onPostExecute(String s) {
@@ -108,5 +103,5 @@ public class ManHinhLoadNhomCha1 extends AppCompatActivity {
         }
 
     }
-}
 
+}
