@@ -103,7 +103,7 @@
 
     <ImageView
         android:layout_gravity="right"
-        android:id="@+id/imageView6"
+        android:id="@+id/imgthem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/icon_plus" />

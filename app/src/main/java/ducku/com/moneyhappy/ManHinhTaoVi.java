@@ -22,6 +22,7 @@ public class ManHinhTaoVi extends AppCompatActivity {
         adControls();
         addEvent();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -34,8 +35,8 @@ public class ManHinhTaoVi extends AppCompatActivity {
         //Bắt sự kiện (+)
         switch (item.getItemId())
         {
-            case R.id.menu1:
-                Intent intent= new Intent(ManHinhTaoVi.this, ManHinhGiaoDich.class);
+            case R.id.menutaovi:
+                Intent intent= new Intent(ManHinhTaoVi.this, ManHinhThemVi.class);
                 startActivity(intent);
                 break;
             default:break;

@@ -56,7 +56,7 @@
         android:layout_marginTop="15dp"
         android:id="@+id/lvKhoanChi"
         android:layout_width="match_parent"
-        android:layout_height="507dp"></ListView>
+        android:layout_height="500dp"></ListView>
 
     <ImageView
         android:id="@+id/imgAdd"

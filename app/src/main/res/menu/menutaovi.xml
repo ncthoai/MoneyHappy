@@ -4,9 +4,9 @@
 
 
     <item
-        android:id="@+id/menu1"
+        android:id="@+id/menutaovi"
         android:icon="@android:drawable/ic_input_add"
-        android:title="Menu 1"
+        android:title="Tạo ví"
         app:showAsAction="always" />
 
 

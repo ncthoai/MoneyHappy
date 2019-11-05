@@ -12,31 +12,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ManHinhLoadNhomCha1"></activity>
-        <activity android:name=".HomeActivity">
-
-        </activity>
+        <activity android:name=".ManHinhHienThiChiTietVi"></activity>
+        <activity android:name=".ManHinhThemVi"></activity>
+        <activity android:name=".ManHinhHienThiVi" />
+        <activity android:name=".ManHinhLoadNhomCha1" />
+        <activity android:name=".HomeActivity" />
         <activity android:name=".ManHinhSuaCategory" />
-        <activity android:name=".ManHinhHienThiGiaoDich">
+        <activity android:name=".ManHinhHienThiGiaoDich" />
+        <activity android:name=".ManHinhLoadNhomCha" />
+        <activity android:name=".ManHinhHienThiChiTietNhom" />
+        <activity android:name=".ManHinhChonViDeTaoNhom" />
+        <activity android:name=".ManHinhTaoNhom" />
+        <activity android:name=".ManHinhVi" />
+        <activity android:name=".ManHinhNhom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ManHinhLoadNhomCha" />
-        <activity android:name=".ManHinhHienThiChiTietNhom" />
-        <activity android:name=".ManHinhChonViDeTaoNhom" />
-        <activity android:name=".ManHinhTaoNhom" />
-        <activity android:name=".ManHinhVi" />
-        <activity android:name=".ManHinhNhom" />
         <activity android:name=".ManHinhThuChi" />
         <activity android:name=".LoadWalletActivity" />
         <activity android:name=".LoadCategoryActivity" />
-        <activity android:name=".ManHinhGiaoDich" >
-
-        </activity>
-        <activity android:name=".ManHinhTaoVi" />
+        <activity android:name=".ManHinhGiaoDich" />
+        <activity android:name=".ManHinhTaoVi"></activity>
         <activity android:name=".ManHinhDangKy" />
         <activity android:name=".ManHinhDangNhap" />
         <activity android:name=".api" />

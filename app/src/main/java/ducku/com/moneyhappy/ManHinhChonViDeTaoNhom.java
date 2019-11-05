@@ -63,9 +63,8 @@ public class ManHinhChonViDeTaoNhom extends AppCompatActivity {
         switch (item.getItemId())
         {
             case android.R.id.home:
-                Intent intent= new Intent(ManHinhChonViDeTaoNhom.this,ManHinhTaoNhom.class);
-                startActivity(intent);
-                break;
+                onBackPressed();
+                return true;
             case R.id.menu1:
                 //code xử lý khi bấm menu1
                 break;
