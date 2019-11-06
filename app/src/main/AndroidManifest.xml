@@ -20,20 +20,26 @@
         <activity android:name=".ManHinhSuaCategory" />
         <activity android:name=".ManHinhHienThiGiaoDich" />
         <activity android:name=".ManHinhLoadNhomCha" />
-        <activity android:name=".ManHinhHienThiChiTietNhom" />
-        <activity android:name=".ManHinhChonViDeTaoNhom" />
-        <activity android:name=".ManHinhTaoNhom" />
-        <activity android:name=".ManHinhVi" />
-        <activity android:name=".ManHinhNhom">
+        <activity android:name=".ManHinhHienThiChiTietNhom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity android:name=".ManHinhChonViDeTaoNhom" />
+        <activity android:name=".ManHinhTaoNhom" />
+        <activity android:name=".ManHinhVi" />
+        <activity android:name=".ManHinhNhom">
+
         </activity>
         <activity android:name=".ManHinhThuChi" />
         <activity android:name=".LoadWalletActivity" />
         <activity android:name=".LoadCategoryActivity" />
+        <activity android:name=".ManHinhLoadIcon">
+
+        </activity>
         <activity android:name=".ManHinhGiaoDich" />
         <activity android:name=".ManHinhTaoVi"></activity>
         <activity android:name=".ManHinhDangKy" />

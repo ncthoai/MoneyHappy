@@ -40,7 +40,7 @@ public class ManHinhHienThiChiTietNhom extends AppCompatActivity {
     int img_ct;
     ArrayList<Category> arrayCategory;
     Resources res;
-    ImageView imgct,imgvi,imgnhomcha;
+    ImageView imgct,imgvi,imgnhomcha,imgnhom;
     TextView txtct,txtvi,txtnhomcha,txttype;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,14 @@ public class ManHinhHienThiChiTietNhom extends AppCompatActivity {
     }
 
     private void addEvents() {
+        imgnhom = (ImageView) findViewById(R.id.imgnhom);
+        imgnhom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent int2 = new Intent(view.getContext(),ManHinhLoadIcon.class);
+                startActivity(int2);
+            }
+        });
     }
 
     private void addControls() {
