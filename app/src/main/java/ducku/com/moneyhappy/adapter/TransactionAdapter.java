@@ -43,24 +43,33 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         Transaction transaction = transactionList.get(position);
 
         // display info to item view holder
-        viewHolder.tvName.setText(transaction.getDescription());
+        viewHolder.tvNameCategory.setText(transaction.getDescription());
         viewHolder.tvDescription.setText(transaction.getDescription());
         viewHolder.tvPrice.setText(String.valueOf(transaction.getAmount()));
-        viewHolder.ivThumbnail.setImageResource(transaction.getType());
+        viewHolder.tvPrice2.setText(String.valueOf(transaction.getAmount()));
+        viewHolder.ivThumbnailCategory.setImageResource(transaction.getImageCategory());
+        viewHolder.ivThumbnailWallet.setImageResource(transaction.getImageWallet());
+        viewHolder.tvCreated.setText(transaction.getCreated());
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvName;
+        TextView tvNameCategory;
         TextView tvDescription;
         TextView tvPrice;
-        ImageView ivThumbnail;
+        TextView tvPrice2;
+        TextView tvCreated;
+        ImageView ivThumbnailCategory;
+        ImageView ivThumbnailWallet;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tvName);
+            tvNameCategory = itemView.findViewById(R.id.tvNameCategory);
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvPrice = itemView.findViewById(R.id.tvPrice);
-            ivThumbnail = itemView.findViewById(R.id.ivThumbnail);
+            ivThumbnailCategory = itemView.findViewById(R.id.ivThumbnailCategory);
+            ivThumbnailWallet = itemView.findViewById(R.id.ivThumbnailWallet);
+            tvCreated = itemView.findViewById(R.id.tvCreated);
+            tvPrice2 = itemView.findViewById(R.id.tvPrice2);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

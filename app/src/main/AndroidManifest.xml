@@ -13,11 +13,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".HomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ManHinhSuaCategory" />
         <activity android:name=".ManHinhHienThiGiaoDich">
@@ -34,7 +30,13 @@
         <activity android:name=".ManHinhGiaoDich" />
         <activity android:name=".ManHinhTaoVi" />
         <activity android:name=".ManHinhDangKy" />
-        <activity android:name=".ManHinhDangNhap" />
+        <activity android:name=".ManHinhDangNhap" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".api" />
         <activity android:name=".MainActivity" />
     </application>

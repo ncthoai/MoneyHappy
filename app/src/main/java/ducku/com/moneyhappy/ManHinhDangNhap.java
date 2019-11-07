@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ducku.com.moneyhappy.model.Preferences;
+
 public class ManHinhDangNhap extends AppCompatActivity {
 
     EditText txtSDT,txtPassword;
@@ -69,13 +71,11 @@ public class ManHinhDangNhap extends AppCompatActivity {
                 } else {
                     //bla bla
                     twMsg.setText("Dang nhap thanh cong");
-                    SharedPreferences sharedPreferences = getSharedPreferences("LoginInfo", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("ID", accountId);
+                    Preferences.saveUser(ManHinhDangNhap.this, accountId);
                     Intent intent;
 
                     if(checkWallet.equals("true")) {
-                        intent=new Intent(ManHinhDangNhap.this, ManHinhHienThiGiaoDich.class);
+                        intent=new Intent(ManHinhDangNhap.this, HomeActivity.class);
                     }
                     else {
                         intent=new Intent(ManHinhDangNhap.this, ManHinhTaoVi.class);

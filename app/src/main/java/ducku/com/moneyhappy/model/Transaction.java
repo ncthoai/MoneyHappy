@@ -5,18 +5,24 @@ public class Transaction {
     private int type;
     private int walletId;
     private int categoryId;
-    private String description;
-    private String created;
     private int amount;
+    private int imageCategory;
+    private int imageWallet;
+    private String nameCategory;
+    private String created;
+    private String description;
 
-    public Transaction(int id, int type, int walletId, int categoryId, String description, String created, int amount) {
+    public Transaction(int id, int type, int walletId, int categoryId, int amount, int imageCategory, int imageWallet, String nameCategory, String created, String description) {
         this.id = id;
         this.type = type;
         this.walletId = walletId;
         this.categoryId = categoryId;
-        this.description = description;
-        this.created = created;
         this.amount = amount;
+        this.imageCategory = imageCategory;
+        this.imageWallet = imageWallet;
+        this.nameCategory = nameCategory;
+        this.created = created;
+        this.description = description;
     }
 
     public int getId() {
@@ -51,12 +57,36 @@ public class Transaction {
         this.categoryId = categoryId;
     }
 
-    public String getDescription() {
-        return description;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public int getImageCategory() {
+        return imageCategory;
+    }
+
+    public void setImageCategory(int imageCategory) {
+        this.imageCategory = imageCategory;
+    }
+
+    public int getImageWallet() {
+        return imageWallet;
+    }
+
+    public void setImageWallet(int imageWallet) {
+        this.imageWallet = imageWallet;
+    }
+
+    public String getNameCategory() {
+        return nameCategory;
+    }
+
+    public void setNameCategory(String nameCategory) {
+        this.nameCategory = nameCategory;
     }
 
     public String getCreated() {
@@ -67,12 +97,12 @@ public class Transaction {
         this.created = created;
     }
 
-    public int getAmount() {
-        return amount;
+    public String getDescription() {
+        return description;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
 
